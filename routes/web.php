@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+use App\Http\Controllers\DashboardController;
+
+Route::get('/', [DashboardController::class, 'index']);
+Route::get('/screen/{screen}', [DashboardController::class, 'screen']);
+Route::get('/search', [DashboardController::class, 'search']);
+Route::post('/toggle-square', [DashboardController::class, 'toggleSquare']);
